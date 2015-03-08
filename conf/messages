@@ -1,0 +1,6 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#normal
+linear-gradient(to bottom, #00d9ff 0%, #0099ff 100%)
+hl
+linear-gradient(to bottom, #00d9ff 0%, #ffffff 100%)

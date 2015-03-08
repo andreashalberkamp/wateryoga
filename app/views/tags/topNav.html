@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+   <div class="navbar-header">
+      <div class="logo">
+          <img src="http://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kifaEqhVHkR3bkmAyK3Uc+A5okiUlhvRt9f8=" class="logo_thumb first_notice_logo">
+        </div>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+         #{if _cmsBean !=null}
+           #{list items:_cmsBean.getEntry("navigation").getEntryList("subelements")  , as:'mainCat'}
+              #{if mainCat.getEntryList("subelements").size > 0}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${mainCat.getString("pagecode")} </a>
+                  <ul class="dropdown-menu" role="menu">
+                   #{list items:mainCat.getEntryList("subelements")  , as:'subCat'}
+                    <li><a href="#">${subCat.getString("pagecode")} </a></li>
+                   #{/list}
+                 </ul></li>
+               #{/if}
+               #{else}
+               <li class="active1"><a href="#">${mainCat.getString("pagecode")} <span class="sr-only">(current)</span></a>
+               #{/else}
+            #{/list}
+      </ul>
+   </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+#{/if}

@@ -1,0 +1,23 @@
+.top-background{
+	 background-color: white;
+}
+.header-box {
+    margin-bottom: 12px;
+    color: #50272D;
+    padding-top : 0px;
+   
+    padding-bottom: 10px;
+}
+
+.logo{
+	padding-top: 6px;
+	padding-right: 15px;
+	padding-bottom: 8px;
+}
+.infoboxes{
+	margin-top: 10px;
+}
+
+.courselink {
+	float: right; 
+}
