@@ -7,3 +7,31 @@ test-result/
 lib/
 tmp/
 modules/
+cobertura.ser
+jdbc.log
+*.pyc
+# debian packaging
+grid-*webapp-bin
+grid-*webapp-config*
+files
+*debhelper.log
+*.substvars
+*.deb
+*.changes
+*.build
+version.txt
+# eclipse
+/eclipse
+.project
+.classpath
+.settings
+# intelli-j
+*.iml
+*.ipr
+*.iws
+# netbeans
+nbproject/
+# os crap
+.DS_Store
+
+.pydevproject
