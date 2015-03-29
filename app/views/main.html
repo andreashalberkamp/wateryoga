@@ -4,7 +4,9 @@
 <title>#{get 'title' /}</title>
 <meta charset="${_response_encoding}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href='http://fonts.googleapis.com/css?family=Merriweather:400italic' rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Merriweather:400italic'
+	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" media="screen"
 	href="@{'/public/stylesheets/bootstrap.css'}">
 <link rel="stylesheet" media="screen"
@@ -21,20 +23,12 @@
 #{get 'moreScripts' /}
 </head>
 <body>
-	<div class="container">
-		<div class="row header-box top-background navbar-fixed-top">
-			#{topNav cmsBean:cmsBean/}
-		</div>
-
-		<div class="center  row">#{get 'center' /}</div>
+	<div class="container globalContainer" style="width:900px">
+		<div class="row header-box top-background ">#{topNav cmsBean:cmsBean/}</div>
+		<hr/>
+		<div class="centerContainer">#{get 'center' /}</div>
 		<hr>
-		<div class="footerrow">
 
-			<div class="col-md-12">
-				<a href="">About</a> | <a href="">Impressum</a> | <a href="">contact</a>
-				|
-			</div>
-		</div>
 	</div>
 </body>
 </html>

@@ -1,13 +1,13 @@
-<nav class="navbar navbar-default" style="margin-top: -41px;">
-  <div class="container">
-   <div class="navbar-header">
+<nav class="" style="height: 109px; margin-top: 0px;">
+  
+   <div class="navbar-header" style="float:right">
       <div class="logo">
           <img src="@{'/public/images/logo1.jpg'}" class="logo_thumb first_notice_logo">
         </div>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       <ul class="nav navbar-nav">
+       <ul class="nav navbar-nav" style="height: 40px; margin-top: -30px; margin-bottom: -21px;">
          #{if _cmsBean !=null}
            #{list items:_cmsBean.getEntry("navigation").getEntryList("subelements")  , as:'mainCat'}
               #{if mainCat.getEntryList("subelements").size > 0}
@@ -25,6 +25,6 @@
             #{/list}
       </ul>
    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+ 
 </nav>
 #{/if}

@@ -5,20 +5,19 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import models.CmsBean;
 import play.mvc.Controller;
 import services.CmsService;
 import utils.Constants;
+
 public class Application extends Controller {
 
     @Inject
     static CmsService cmsService;
 
     public static void index() {
-        Map photoMap = new HashMap<String, String>();
-        photoMap.put("http://www.fuchs-physiotherapie.com/wp-content/uploads/2014/11/yoga.jpg", "wateryoga");
-        renderArgs.put(Constants.REQUEST_CMSBEAN,
-                cmsService.fetchCmsPage(Constants.CMS_CONTENTTYPE_STARTPAGE, Constants.CMS_CONTENTTYPE_STARTPAGE, null, false));
-        renderArgs.put("photos", photoMap);
+        CmsBean cmsBean = cmsService.fetchCmsPage(Constants.CMS_CONTENTTYPE_STARTPAGE, Constants.CMS_CONTENTTYPE_STARTPAGE, null, false);
+        renderArgs.put(Constants.REQUEST_CMSBEAN, cmsBean);
         renderTemplate("index.html");
     }
 
