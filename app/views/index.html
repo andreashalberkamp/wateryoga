@@ -5,7 +5,7 @@
 #{/set}
 
 <div class="row ">
-	<img src="${cmsBean.getAsset('image')?.getUrl()}" alt="${cmsBean.getAsset('image')?.getFields()?.get('description')}" class="mainBanner">
+	<img src="${cmsBean.getAsset('image')?.getUrl()}" alt="${cmsBean.getAsset('image')?.getFields()?.get('description')}" class="mainBanner"/>
 </div>
 <div class="row title">${cmsBean.getString('title')}</div>
 <div class="row body">${cmsBean.getString('body').raw()}</div>

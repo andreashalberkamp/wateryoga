@@ -25,7 +25,7 @@ public class Application extends Controller {
     public static void cmsPage(String contentType, String pageCode) {
         CmsBean cmsBean = cmsService.fetchCmsPage(contentType, pageCode, null, false);
         renderArgs.put(Constants.REQUEST_CMSBEAN, cmsBean);
-        renderTemplate(String.format("%s.html", cmsBean.getContentType()));
+        renderTemplate(String.format("/pages/%s.html", cmsBean.getContentType()));
     }
 
 

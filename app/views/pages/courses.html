@@ -1,0 +1,28 @@
+#{extends 'main.html' /} #{set 'center'} #{set 'moreMetadata'}
+<title>${cmsBean.getString('metatitle')}
+	${cmsBean.containsKey('metatitle')?' | ':''} &{'page.title'}</title>
+<meta name="description"
+	content="${cmsBean.getString('metadescription')}">
+#{/set}
+
+#{if cmsBean !=null} 
+  #{list items:cmsBean.getEntryList("courses") , as:'elem'}
+    <div class="row ">
+     <div class="col-md-7">
+       <span class="sectionTitle">${elem.getString('title').raw()}</span><br/>
+       #{if !(elem.getString('description') ==  "")}
+         ${elem.getString('description').raw()}<br/> 
+        #{/if} 
+        <br/>  
+        ${elem.getString('address').raw()}<br/>
+       <br/>
+       ${elem.getString('date').raw()}<br/>
+    </div>
+     <div class="col-md-5">
+        <img src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('description')}" style="width: 200px; height: 200px;" />
+     </div>
+    </div>
+   #{if !(elem_index == cmsBean.getEntryList("courses").size)} <br/><br/>#{/if} 
+   #{/list}
+ #{/if}
+#{/set}
