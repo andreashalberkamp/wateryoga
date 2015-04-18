@@ -1,5 +1,8 @@
-#{extends 'main.html' /} #{set title:'Home' /} #{set 'center'}
-
+#{extends 'main.html' /}  #{set 'center'}
+#{set 'moreMetadata'}
+ <title>${cmsBean.getString('metatitle')} ${cmsBean.containsKey('metatitle')?' | ':''} &{'page.title'}</title>
+ <meta name="description" content="${cmsBean.getString('metadescription')}">
+#{/set}
 
 <div class="row ">
 	<img src="${cmsBean.getAsset('image')?.getUrl()}" alt="${cmsBean.getAsset('image')?.getFields()?.get('description')}" class="mainBanner">

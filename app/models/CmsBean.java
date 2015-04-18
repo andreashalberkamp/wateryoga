@@ -9,7 +9,11 @@ import com.contentful.java.cda.model.CDAEntry;
 
 /** Variant attribute names */
 
+
 public class CmsBean {
+
+    private static String CONTENTTYPE = "contentType";
+    private static String PAGECODE = "pagecode";
 
     CDAEntry entry = null;
 
@@ -21,8 +25,23 @@ public class CmsBean {
         return entry.getSys();
     }
 
+    // contentType->{sys={type=Link, linkType=ContentType, id=startpage}}
+
+    public String getContentType() {
+        String type = "cms";
+        Map<String, Object> map = entry.getSys();
+        if (map != null && map.containsKey(CONTENTTYPE)) {
+            type = ((com.google.gson.internal.StringMap) ((com.google.gson.internal.StringMap) map.get(CONTENTTYPE)).get("sys")).get("id").toString();
+        }
+        return type;
+    }
+
     public String getID() {
         return (String) entry.getSys().get("id");
+    }
+
+    public String getPageCode() {
+        return getString(PAGECODE);
     }
 
     public CmsBean getEntry(String key) {

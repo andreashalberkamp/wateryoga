@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -16,17 +15,19 @@ public class Application extends Controller {
     static CmsService cmsService;
 
     public static void index() {
+
         CmsBean cmsBean = cmsService.fetchCmsPage(Constants.CMS_CONTENTTYPE_STARTPAGE, Constants.CMS_CONTENTTYPE_STARTPAGE, null, false);
+        Map<String, Object> map = cmsBean.getSys();
         renderArgs.put(Constants.REQUEST_CMSBEAN, cmsBean);
         renderTemplate("index.html");
     }
 
-    public static void gallery() {
-        Map photoMap = new HashMap<String, String>();
-        photoMap.put("http://www.lanzarotesurf.com/wp-content/uploads/2014/11/yoga-1024x433.jpg", "wateryoga");
-        photoMap.put("http://www.fuchs-physiotherapie.com/wp-content/uploads/2014/11/yoga.jpg", "wateryoga");
-
-        renderArgs.put("photos", photoMap);
-        renderTemplate("gallery.html");
+    public static void cmsPage(String contentType, String pageCode) {
+        CmsBean cmsBean = cmsService.fetchCmsPage(contentType, pageCode, null, false);
+        renderArgs.put(Constants.REQUEST_CMSBEAN, cmsBean);
+        renderTemplate(String.format("%s.html", cmsBean.getContentType()));
     }
+
+
+
 }
