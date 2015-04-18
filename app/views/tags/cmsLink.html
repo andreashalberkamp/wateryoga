@@ -1,0 +1,8 @@
+#{if _navElement.getString('externallink')==""} 
+  #{set 'contentType'}${_navElement.getEntry('currentelement')?.getContentType()}#{/set}
+  #{set 'pageCode'}${_navElement.getEntry('currentelement')?.getPageCode()}#{/set}
+    @{Application.cmsPage(contentType,pageCode)}
+#{/if}
+#{else}
+  ${_navElement.getString('externallink')}
+#{/else}

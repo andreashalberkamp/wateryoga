@@ -2,7 +2,7 @@
   
    <div class="navbar-header" style="float:right">
       <div class="logo">
-          <img src="@{'/public/images/logo1.jpg'}" class="logo_thumb first_notice_logo">
+          <a href="@{Application.index()}"><img src="@{'/public/images/logo2.jpg'}" class="logo_thumb first_notice_logo"></a>
         </div>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -12,27 +12,17 @@
            #{list items:_cmsBean.getEntry("navigation").getEntryList("subelements")  , as:'mainCat'}
               #{if mainCat.getEntryList("subelements").size > 0}
               <li class="dropdown">
-               #{set 'contentType'}${mainCat.getEntry('currentelement')?.getContentType()}#{/set}
-               #{set 'pageCode'}${mainCat.getEntry('currentelement')?.getPageCode()}#{/set}
-                 #{if pageCode!=null}
-                 <a href="@{CApplication.cmsPage(contentType,pageCode)}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${mainCat.getString("title")} </a>
+               <a href="#{cmsLink navElement:mainCat /}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${mainCat.getString("title")} </a>
                   <ul class="dropdown-menu" role="menu">
                    #{list items:mainCat.getEntryList("subelements")  , as:'subCat'}
-                     #{set 'contentType'}${subCat.getEntry('currentelement')?.getContentType()}#{/set}
-                     #{set 'pageCode'}${subCat.getEntry('currentelement')?.getPageCode()}#{/set}
-                      #{if pageCode!=null}
-                        <li><a href="@{CApplication.cmsPage(contentType,pageCode)}">${subCat.getString("title")} </a></li>
-                       #{/if}  
+                      <li><a href="#{cmsLink navElement:subCat /}">${subCat.getString("title")} </a></li> 
                    #{/list}
                  </ul></li>
-                  #{/if}
+                 
                #{/if}
                #{else}
-                #{set 'contentType'}${mainCat.getEntry('currentelement')?.getContentType()}#{/set}
-                #{set 'pageCode'}${mainCat.getEntry('currentelement')?.getPageCode()}#{/set}
-                 #{if pageCode!=null}
-                  <li class="active1"><a href="@{Application.cmsPage(contentType,pageCode)}">${mainCat.getString("title")} <span class="sr-only">(current)</span></a>
-                #{/if}
+            
+                  <li class="active1"><a href="#{cmsLink navElement:mainCat /}">${mainCat.getString("title")} <span class="sr-only">(current)</span></a>
                #{/else}
             #{/list}
       </ul>
