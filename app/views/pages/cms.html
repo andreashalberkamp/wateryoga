@@ -1,0 +1,33 @@
+#{extends 'main.html' /} #{set 'center'}
+#{set 'moreMetadata'}
+  <title>${cmsBean.getString('metatitle')}${cmsBean.containsKey('metatitle')?' | ':''} &{'page.title'}</title>
+  <meta name="description" content="${cmsBean.getString('metadescription')}">
+#{/set}
+ #{if cmsBean !=null} 
+  #{list items:cmsBean.getEntryList("cmsFragments") , as:'elem'}
+    <div class="row ">
+	   #{if elem.getAsset('image') == null}
+	     <div class="col-md-12">
+		    #{if !(elem.getString('title') == "")}
+		       <span class="sectionTitle">${elem.getString('title').raw()}</span><br/><br />
+		    #{/if} 
+		    ${elem.getString('content').raw()}<br />
+	     </div>
+	#{/if} 
+	#{else}
+    <div class="col-md-7">
+		  #{if !(elem.getString('title') == "")}
+		       <span class="sectionTitle">${elem.getString('title').raw()}</span><br/><br /> 
+		  #{/if}
+		  ${elem.getString('content').raw()}<br />
+	  </div>
+	  <div class="col-md-5">
+		 <img src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('description')}" style="width: 200px; height: 200px;" />
+	</div>
+
+#{/else}
+</div>
+<br/><br/>
+#{/list}
+#{/if}
+ #{/set}

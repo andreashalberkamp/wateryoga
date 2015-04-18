@@ -1,6 +1,5 @@
 #{extends 'main.html' /} #{set 'center'} #{set 'moreMetadata'}
-<title>${cmsBean.getString('metatitle')}
-	${cmsBean.containsKey('metatitle')?' | ':''} &{'page.title'}</title>
+<title>${cmsBean.getString('metatitle')}${cmsBean.containsKey('metatitle')?' | ':''} &{'page.title'}</title>
 <meta name="description"
 	content="${cmsBean.getString('metadescription')}">
 #{/set}
@@ -22,7 +21,7 @@
         <img src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('description')}" style="width: 200px; height: 200px;" />
      </div>
     </div>
-   #{if !(elem_index == cmsBean.getEntryList("courses").size)} <br/><br/>#{/if} 
+   <br/><br/>
    #{/list}
  #{/if}
 #{/set}
