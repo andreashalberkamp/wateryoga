@@ -21,8 +21,8 @@
 		  #{/if}
 		  <p  align="justify">${elem.getString('content').raw()} </p><br />
 	  </div>
-	  <div class="col-md-5" style="vertical-align: bottom;">
-		 <img src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('title')}" style="${elem.getAsset('image')?.getFields()?.get('description')}" />
+	  <div class="col-md-5 relativ" >
+		 <img class="bottom" src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('title')}" style="${elem.getAsset('image')?.getFields()?.get('description')}" />
 	</div>
 #{/else}
 </div>

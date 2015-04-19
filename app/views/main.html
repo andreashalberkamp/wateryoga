@@ -3,16 +3,11 @@
 <head>
 #{get 'moreMetadata' /}
 <meta charset="${_response_encoding}">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href='http://fonts.googleapis.com/css?family=Merriweather:400italic'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" media="screen"
-	href="@{'/public/stylesheets/bootstrap.css'}">
-<link rel="stylesheet" media="screen"
-	href="@{'/public/stylesheets/bootstrap-theme.css'}">
-<link rel="stylesheet" media="screen"
-	href="@{'/public/stylesheets/main.css'}">
+
+<link href='http://fonts.googleapis.com/css?family=Merriweather:400italic'  rel='stylesheet' type='text/css'>
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap-theme.css'}">
+<link rel="stylesheet" media="screen"href="@{'/public/stylesheets/main.css'}">
 #{get 'moreStyles' /}
 <link rel="shortcut icon" type="image/png"
 	href="@{'/public/images/favicon.png'}">
@@ -24,7 +19,12 @@
 </head>
 <body>
 	<div class="container globalContainer" style="width:900px">
-		<div class="row header-box top-background ">#{topNav cmsBean:cmsBean/}</div>
+	   <div class="navbar-header" style="float:right">
+      <div class="logo">
+          <a href="@{Application.index()}"><img src="@{'/public/images/logo2.jpg'}" class="logo_thumb first_notice_logo"></a>
+        </div>
+    </div>
+ <div>#{topNav cmsBean:cmsBean/}</div>
 		<hr/>
 	#{if params._contains('cms')}
 		 <div class="alert alert-success">

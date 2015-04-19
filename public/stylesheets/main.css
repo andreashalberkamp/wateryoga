@@ -59,3 +59,10 @@
 .blue{
   color: #426897;
 }
+
+
+
+/* positions header-content at the bottom of header's context */
+.bottom 
+{ 
+    vertical-align: text-bottom; 
