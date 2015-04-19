@@ -22,13 +22,13 @@
 		  ${elem.getString('content').raw()}<br />
 	  </div>
 	  <div class="col-md-5">
-		 <img src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('description')}" style="width: 200px; height: 200px;" />
+		 <img src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('title')}" style="${elem.getAsset('image')?.getFields()?.get('description')}" />
 	</div>
 #{/else}
 </div>
 <div class="row ">
-     #{if !(elem.getAsset('footerimage') == null))}
-        <img src="${elem.getAsset('footerimage')?.getUrl()}" alt="${elem.getAsset('footerimage')?.getFields()?.get('description')}"  />
+     #{if !(elem.getAsset('footerimage') == null)}
+        <img src="${elem.getAsset('footerimage')?.getUrl()}" alt="${elem.getAsset('footerimage')?.getFields()?.get('title')}" style="${elem.getAsset('footerimage')?.getFields()?.get('description')}" />
      #{/if}
    </div>
 <br/><br/>

@@ -26,6 +26,12 @@
 	<div class="container globalContainer" style="width:900px">
 		<div class="row header-box top-background ">#{topNav cmsBean:cmsBean/}</div>
 		<hr/>
+	#{if params._contains('cms')}
+		 <div class="alert alert-success">
+      <a target="_blank" href="https://app.contentful.com/spaces/5v0ywjti1yhv/entries/${cmsBean.getID()}">
+      zur aktuellen cms-seite</a>
+	 </div>
+	 #{/if}	
 		<div class="centerContainer">#{get 'center' /}</div>
 		<hr>
   <div id="footer">
@@ -34,7 +40,7 @@
         #{set 'contentType'}${footer.getEntry('currentelement')?.getContentType()}#{/set}
         #{set 'pageCode'}${footer.getEntry('currentelement')?.getPageCode()}#{/set}
          #{if pageCode!=null}
-           <a href="@{Application.cmsPage(contentType,pageCode)}">${footer.getString("pagecode")}</a> <span style="color: #d9d9d9;"> |</span>
+           <a href="@{Application.cmsPage(contentType,pageCode)}">${footer.getString("title")}</a> <span style="color: #d9d9d9;"> |</span>
           #{/if}
          #{/list}  
       </div>
