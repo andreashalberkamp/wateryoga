@@ -11,7 +11,7 @@
 		    #{if !(elem.getString('title') == "")}
 		       <span class="sectionTitle">${elem.getString('title').raw()}</span><br/><br />
 		    #{/if} 
-		    ${elem.getString('content').raw()}<br />
+		    <p  align="justify">${elem.getString('content').raw()}</p><br />
 	     </div>
 	#{/if} 
 	#{else}
@@ -19,9 +19,9 @@
 		  #{if !(elem.getString('title') == "")}
 		       <span class="sectionTitle">${elem.getString('title').raw()}</span><br/><br /> 
 		  #{/if}
-		  ${elem.getString('content').raw()}<br />
+		  <p  align="justify">${elem.getString('content').raw()} </p><br />
 	  </div>
-	  <div class="col-md-5">
+	  <div class="col-md-5" style="vertical-align: bottom;">
 		 <img src="${elem.getAsset('image')?.getUrl()}" alt="${elem.getAsset('image')?.getFields()?.get('title')}" style="${elem.getAsset('image')?.getFields()?.get('description')}" />
 	</div>
 #{/else}
