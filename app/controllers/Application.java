@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import models.CmsBean;
@@ -15,11 +13,15 @@ public class Application extends Controller {
     static CmsService cmsService;
 
     public static void index() {
-
         CmsBean cmsBean = cmsService.fetchCmsPage(Constants.CMS_CONTENTTYPE_STARTPAGE, Constants.CMS_CONTENTTYPE_STARTPAGE, null, false);
-        Map<String, Object> map = cmsBean.getSys();
         renderArgs.put(Constants.REQUEST_CMSBEAN, cmsBean);
         renderTemplate("index.html");
+    }
+
+    public static void siteMap() {
+        CmsBean cmsBean = cmsService.fetchCmsPage(Constants.CMS_CONTENTTYPE_STARTPAGE, Constants.CMS_CONTENTTYPE_STARTPAGE, null, false);
+        renderArgs.put(Constants.REQUEST_CMSBEAN, cmsBean);
+        renderTemplate("sitemap.html");
     }
 
     public static void cmsPage(String contentType, String pageCode) {

@@ -5,7 +5,8 @@
 # Home page
 GET     /                                              Application.index
 GET     /{contentType}/{pageCode}.html                 Application.cmsPage
-GET     /gallery                                         Application.gallery
+GET     /sitemap.xml                                   Application.siteMap
+GET     /gallery                                       Application.gallery
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
