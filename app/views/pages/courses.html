@@ -1,5 +1,5 @@
 #{extends 'main.html' /} #{set 'center'} #{set 'moreMetadata'}
-<title>${cmsBean.getString('metatitle')}${cmsBean.containsKey('metatitle')?' | ':''} &{'page.title'}</title>
+ <title>${cmsBean.getString('metatitle')} ${cmsBean.containsKey('metatitle')?' | ':''} &{'page.title'}</title>
 <meta name="description"
 	content="${cmsBean.getString('metadescription')}">
 #{/set}
