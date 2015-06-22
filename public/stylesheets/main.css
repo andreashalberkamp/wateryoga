@@ -34,14 +34,11 @@
 }
 
 .globalContainer{
-	width:900px;
-	border-bottom:none;
-	border-top:none;
-	border-color: #f3f3f3;
+  border-color: #f3f3f3;
   border-style: groove;
   border-width: thin;
-  border-bottom-width: 0px;
-  border-top-width: 0px
+  width: 900px;
+}
    
 }
 
